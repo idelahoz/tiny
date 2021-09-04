@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_013254) do
     t.integer "visits", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["token"], name: "index_urls_on_token"
   end
 
 end
