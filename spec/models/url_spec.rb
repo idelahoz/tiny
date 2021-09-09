@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Url, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should set a token to a new url" do
+    url = Url.create(address: 'http://google.com')
+    expect(url.token).to be_present
+  end
 end
