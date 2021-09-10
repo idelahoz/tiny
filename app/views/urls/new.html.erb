@@ -1,5 +1,7 @@
 <h1>enter your url</h1>
 
+<h3><%= link_to("All urls", urls_path) %></h3>
+
 <%= form_with model: @url do |form| %>
     <%= form.text_field :address %>
     <%= form.submit %>

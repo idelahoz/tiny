@@ -1,0 +1,7 @@
+<h1>Urls</h1>
+
+<ul>
+<%- @urls.each do |url| %>
+   <p> <%= link_to(url.address, controller: 'urls', action: 'info', token: url.token) %> </p>
+<%- end %>
+</ul>

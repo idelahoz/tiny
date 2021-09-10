@@ -5,13 +5,16 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.create(url_params)
+    render :info
   end
 
   def index
+    @urls = Url.all
   end
 
   def show
     @url = Url.find_by!(token: params[:token])
+    RegisterViewJob.perform_later(@url.token)
     redirect_to @url.address
   end
 

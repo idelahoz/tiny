@@ -1,3 +1,5 @@
 <h1><%= @url.address %></h1>
 
 <h3>Short url: <%= link_to(url_for(controller: 'urls', action: 'show', token: @url.token, only_path: false), controller: 'urls', action: 'show', token: @url.token) %></h3>
+
+<h3>Visits: <%= @url.visits %> </h3>

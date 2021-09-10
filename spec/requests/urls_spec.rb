@@ -20,6 +20,7 @@ RSpec.describe "Urls", type: :request do
   describe "show" do
     it "should redirect to url address" do
       url = Url.create(address: 'http://example.com')
+      expect(RegisterViewJob).to receive(:perform_later).with(url.token)
       get "/#{url.token}"
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(url.address)
