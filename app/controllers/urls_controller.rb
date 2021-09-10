@@ -5,7 +5,12 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.create(url_params)
-    render :info
+    if @url.valid?
+      render :info
+    else
+      flash.alert = @url.errors.full_messages.join(",")
+      render :new
+    end
   end
 
   def index

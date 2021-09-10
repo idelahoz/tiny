@@ -1,6 +1,7 @@
 class Url < ApplicationRecord
   before_create :set_token
   validates_presence_of :address
+  validates_format_of :address, :with => URI::regexp(%w(http https))
 
   private
 
