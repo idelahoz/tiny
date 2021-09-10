@@ -32,7 +32,6 @@ RSpec.describe "Urls", type: :request do
       get "/#{url.token}/info"
       expect(response.body).to include(url.address)
       expect(response.body).to include("http://www.example.com/#{url.token}")
-
     end
   end
 end
