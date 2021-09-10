@@ -1,6 +1,4 @@
-# Project
-
-[project.com](https://project.com)
+# Tiny
 
 ## Install
 
