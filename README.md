@@ -1,24 +1,45 @@
-# README
+# Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[project.com](https://project.com)
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+### Clone the repository
 
-* System dependencies
+```shell
+git clone git@github.com:idelahoz/tiny.git
+cd tiny
+```
 
-* Configuration
+### Check your Ruby version
 
-* Database creation
+```shell
+ruby -v
+```
 
-* Database initialization
+The ouput should start with something like `ruby 3.0.2`
 
-* How to run the test suite
+### Install dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
 
-* Deployment instructions
+```shell
+bundle && yarn
+```
 
-* ...
+### Initialize the database
+
+```shell
+rails db:create db:migrate
+```
+
+## Serve
+
+```shell
+rails s
+```
+
+## Usage
+To start using the app go to the local page, usually: http://localhost:3000
+
+You'll see a page to create a new url. After creating it you can use it with a url like: http://localhost:3000/abc123 and it will redirect you to the specified url.
