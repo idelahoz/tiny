@@ -11,6 +11,12 @@ class UrlsController < ApplicationController
   end
 
   def show
+    @url = Url.find_by!(token: params[:token])
+    redirect_to @url.address
+  end
+
+  def info
+    @url = Url.find_by!(token: params[:token])
   end
 
   private

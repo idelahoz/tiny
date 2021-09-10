@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Urls", type: :request do
   describe "new" do
     it "renders new template" do
-      get "/urls/new"
+      get "/"
       expect(response.body).to include("enter your url")
     end
   end
@@ -14,6 +14,25 @@ RSpec.describe "Urls", type: :request do
       url = Url.last
       expect(url.token.size).to eq(5)
       expect(url.address).to eq('http://example.com')
+    end
+  end
+
+  describe "show" do
+    it "should redirect to url address" do
+      url = Url.create(address: 'http://example.com')
+      get "/#{url.token}"
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to(url.address)
+    end
+  end
+
+  describe "info" do
+    it "should should url info" do
+      url = Url.create(address: 'http://somehost.com/path')
+      get "/#{url.token}/info"
+      expect(response.body).to include(url.address)
+      expect(response.body).to include("http://www.example.com/#{url.token}")
+
     end
   end
 end
